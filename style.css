@@ -1,0 +1,112 @@
+body{
+    margin: 0;
+    padding: 49px;
+    height: 100%;
+    font-family: sans-serif;
+    text-align: center;
+
+}
+
+body:before{
+    content:"";
+    position: fixed;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../pictures/pic4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+
+
+.box{
+    width: 1000px;
+    height: 770px;
+    background-color: lightskyblue;
+    opacity: 0.8;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border: 5px solid rgb(255, 255, 255);
+} 
+
+form{
+    color: blue;
+    font-family: monospace;
+}
+
+h4{
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: white;
+    font-family: sans-serif;
+    z-index: 1;
+}
+
+#loaderGif{
+    width: 150px;
+    height: 150px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: fixed;
+    border: 5px solid lightseagreen;
+    border-top-color: lightskyblue;    
+    border-radius: 100%;
+    animation: round 2s linear infinite;
+}
+
+#loaderBack {
+    position: fixed; 
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.33;
+    z-index: 2;
+    cursor: not-allowed; 
+}
+
+@keyframes round{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+
+#submitButton{
+    background-color: darkgreen;
+    text-align: center;
+}
+
+.form-control{
+    background-color: skyblue;
+    opacity: 0.80;
+}
+
+::placeholder{
+    color: black;
+    opacity: 1;
+}
+
+textarea:focus, input:focus{
+    color:black;
+}
+input, select, textarea{
+    color:black
+}
