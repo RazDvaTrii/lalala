@@ -7,4 +7,3 @@ function loader() {
     document.getElementById('loaderBack').style.display = "none";
     },2100);  
   }
-

@@ -1,17 +1,17 @@
-window.onload = function () {  
+window.onload = function () {
     $('#submitButton').on('click', function (event) {
         event.preventDefault();
         console.log('clicked');
+        // checkInputs();
         sum();
     })
     document.getElementById('firstName').focus();
     var inputs;
     var all;
-    var person = {};
+    var person = [];
     bal = 0;
-    
     //enter event
-    all = document.getElementsByClassName("move");
+    all = document.getElementsByClassName('move');
     inputs = document.querySelectorAll("input,select");
     for (var i = 0 ; i < inputs.length; i++) {
         inputs[i].addEventListener("keypress", function(e){
@@ -31,27 +31,27 @@ window.onload = function () {
     function setStudentAtribute(atribute, field){
     person[atribute] = field.value;
     }
-    
+
     //arrows
     document.addEventListener("keydown", function(e){
         if(e.keyCode === 38 || e.keyCode ===40){
             detectArrows(e);
         }
-       
+
     });
     function detectArrows(e){
         let arr = document.querySelectorAll(".move");
         let me = document.querySelectorAll(".move:focus")[0];
         let arrLen = arr.length;
         let index;
-        
-        arr.forEach( (key, value) => {            
+
+        arr.forEach( (key, value) => {
             if (key.id === me.id) {
                 index = value
                 //console.log(index);
             }
         })
-    
+
         if (e.keyCode == 38) {
             var b;
             b = index - 1 >= 0 ? index - 1 : 0;
@@ -68,7 +68,7 @@ window.onload = function () {
             return;
         }
     }
-    
+
     //validaciq
     function setInputFilter(textbox, inputFilter){
         ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event){
@@ -84,7 +84,7 @@ window.onload = function () {
             });
         });
     }
-    
+
     setInputFilter(document.getElementById("firstName"), function(value) {
     return /^[a-zA-Z]*$/i.test(value); });
     setInputFilter(document.getElementById("lastName"), function(value) {
@@ -92,7 +92,7 @@ window.onload = function () {
     setInputFilter(document.getElementById("age"), function(value) {
     return /^\d*$/.test(value); });
     setInputFilter(document.getElementById("klas"), function(value) {
-    return /^\d*$/.test(value) && (value === "" || parseInt(value) >= 7 && parseInt(value)<=10);});
+    return /^\d*$/.test(value) && (value === "" || parseInt(value) >= 7 && parseInt(value)<=100);});
     setInputFilter(document.getElementById("school"), function(value) {
     return /^[a-zA-Z]*$/i.test(value); });
     setInputFilter(document.getElementById("wantedSchool"), function(value) {
@@ -106,8 +106,8 @@ window.onload = function () {
     setInputFilter(document.getElementById("bgExam"), function(value) {
     return /\A(\d{1,3})(?:.)?(?:\d{1,3})?\z/.test(value) || (value === "" || parseInt(value) <= 100); });
     // return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 100); });
-    
-    
+
+
     function sum(){
         let l = document.getElementById('wantedSchool').value;
         let m = Number(document.getElementById('mathExam').value);
@@ -193,8 +193,42 @@ window.onload = function () {
             bal+=0;
         } return bal;
     }
+
+    let purvoIme = document.getElementById('firstName').value;
+    let vtoroIme = document.getElementById('lastName').value;
+    let godini = parseInt(document.getElementById('age').value);
+    let klasUchilishte = parseInt(document.getElementById('klas').value);
+    let uchilishte = document.getElementById('school').value;
+    let iskanoUchilishte = document.getElementById('wantedSchool').value;
+    let ocenkaMat = parseInt(document.getElementById('mathGrade').value);
+    let ocenkaBg = parseInt(document.getElementById('bgGrade').value);
+    let maturaMat = parseInt(document.getElementById('mathExam').value);
+    let maturaBg = parseInt(document.getElementById('bgExam').value);
+    let form = document.getElementById('form');
+
+    form.addEventListener('sumbit', e => {
+        e.preventDefault();
+
+        checkInputs();
+    })
     
-    
+    function checkInputs(){
+        let purvotoIme = purvoIme.value.trim();
+        let vtorotoime = vtoroIme.value.trim();
+        let godinki = godini.value.trim();
+        let klasG = klasUchilishte.value.trim();
+        
+
+    }
+
+    function setError(){
+
+    }
+
+    function setSucess(){
+
+    }
+
     document.getElementById('firstName').value='';
     document.getElementById('lastName').value='';
     document.getElementById('age').value='';
